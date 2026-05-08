@@ -17,7 +17,12 @@ payload = {
     "response_format": "wav",
     "voice": "casual_male",
 }
- 
+
+with open("livre.txt", "r") as fd :
+	lines = fd.readlines()
+	print(len(lines))
+
+
 response = httpx.post(f"{BASE_URL}/audio/speech", json=payload, timeout=120.0)
 response.raise_for_status()
  
