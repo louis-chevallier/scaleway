@@ -20,7 +20,7 @@ payload = {
     "input": "Paris is a beautiful city!",
     "model": "mistralai/Voxtral-4B-TTS-2603", # "voxtral-mini-tts-2603",
     "response_format": "wav",
-    "voice": "FR_Marie_excited"
+    "voice": "Marie_excited"
 #	"voice_id": "fr_marie_excited"	
 }
 
