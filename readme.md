@@ -72,7 +72,9 @@ install anaconda :
         # ca écrit 1.11.2 chez moi
         
         sudo apt install ffmpeg
+        sudo apt install calibre
 
+        ebook-convert libre.epub livre.txt
 
 
 lsblk
