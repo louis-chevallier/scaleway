@@ -96,6 +96,13 @@ install anaconda :
 
         ebook-convert libre.epub livre.txt
 
+dans une fenetre :
+	vllm serve mistralai/Voxtral-4B-TTS-2603 --omni
+
+dans une autre
+         python client.py
+         
+
 
 lsblk
 
