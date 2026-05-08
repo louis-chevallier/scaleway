@@ -7,7 +7,7 @@ import soundfile as sf
 
 import numpy as np
 from scipy.io.wavfile import write
-
+import subprocess                                                                                                                              
 
 BASE_URL = "http://localhost:8000/v1"
  
@@ -28,8 +28,19 @@ print(audio_array)
 # you can play the audio with a library like `sounddevice.play` for example
 
 
-rate = 44100
+rate = sr
 data = audio_array
 scaled = np.int16(data / np.max(np.abs(data)) * 32767)
 write('test.wav', rate, scaled)
+
+
+# Source - https://stackoverflow.com/a/72738804
+# Posted by ashing, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-05-08, License - CC BY-SA 4.0
+
+
+res=subprocess.Popen("ffmpeg test.wav test.mp3",shell=True,stdout=subprocess.PIPE)
+res.stdout.read()                                                                                                                              
+print(res)
+
 
