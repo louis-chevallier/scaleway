@@ -48,8 +48,8 @@ write('test.wav', rate, scaled)
 # Retrieved 2026-05-08, License - CC BY-SA 4.0
 
 
-res=subprocess.Popen("ffmpeg -i test.wav test.mp3",shell=True,stdout=subprocess.PIPE)
+res=subprocess.Popen("ffmpeg -y -i test.wav test.mp3",shell=True,stdout=subprocess.PIPE)
 res.stdout.read()                                                                                                                              
-print(res)
+#print(res)
 
 
