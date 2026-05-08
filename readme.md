@@ -53,6 +53,9 @@ pwd
 
 à rentrer quand je ssh vers la machine
 
+git clone https://github.com/louis-chevallier/scaleway.git
+
+
 install anaconda :
         curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
         bash Anaconda3-2025.12-2-Linux-x86_64.sh
@@ -68,6 +71,7 @@ install anaconda :
         python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
         # ca écrit 1.11.2 chez moi
         
+        sudo apt install ffmpeg
 
 
 
