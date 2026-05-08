@@ -23,7 +23,7 @@ with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
 	print(len(lines))
 
-	mxll = [ len(l) for l in lines)]
+	mxll = [ len(l) for l in lines]
 	MXL=4096
 	S = MXL // mxl
 	print(f"{=S}")
