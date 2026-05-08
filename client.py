@@ -23,7 +23,7 @@ with open("livre.txt", "r") as fd :
 	print(len(lines))
 
 	S = 100
-	blocks = [ '\n'.join(lines[i:i+S]) for i,l in enumerate(lines[::S))]
+	blocks = [ '\n'.join(lines[i:i+S]) for i,l in enumerate(lines[::S])]
 
 	print(len(blocks)
 
