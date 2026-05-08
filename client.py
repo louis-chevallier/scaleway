@@ -22,6 +22,10 @@ with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
 	print(len(lines))
 
+	S = 100
+	blocks = [ '\n'.join(lines[i:i+S]) for i,l in enumerate(lines[::S))]
+
+	print(len(blocks)
 
 response = httpx.post(f"{BASE_URL}/audio/speech", json=payload, timeout=120.0)
 response.raise_for_status()
