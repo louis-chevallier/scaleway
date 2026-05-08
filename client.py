@@ -56,7 +56,7 @@ with open("livre.txt", "r") as fd :
 		res.stdout.read()                                                                                                                              
 		#print(res)
 
-		res=subprocess.Popen('curl -T out_%02d.mp3 -u "b7_41867395:yZtudpf9jrZHQ" ftp://ftp.byethost7.com/htdocs', shell=True, stdout=subprocess.PIPE)
+		res=subprocess.Popen('curl -T out_%02d.mp3 -u "b7_41867395:yZtudpf9jrZHQ" ftp://ftp.byethost7.com/htdocs' % ib, shell=True, stdout=subprocess.PIPE)
 		res.stdout.read()                                                                                                                              
 
 		
