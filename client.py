@@ -10,6 +10,9 @@ import tqdm
 import numpy as np
 from scipy.io.wavfile import write
 import subprocess                                                                                                                              
+import nltk
+
+nltk.download('punkt_tab')
 
 BASE_URL = "http://localhost:8000/v1"
  
@@ -22,7 +25,16 @@ payload = {
 
 with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
-	mxll = max([ len(l) for l in lines])
+	EKOX(len(lines))
+	text = '\n'.join(lines)
+	sentences = nltk.sent_tokenize(text) # this gives us a list of sentences	
+	EKOX(len(sentences))
+	lens = [ len(l) for l in sentences]
+	mxll = max(lens)
+	EKOX(np.asarray([ len(l) for l in lines]).mean())
+
+	imx = lens.index(max(lens))
+	EKOX(sentences[imx])
 	
 	MXL=4096
 	S = MXL // mxll
@@ -35,7 +47,14 @@ with open("livre.txt", "r") as fd :
 	blocks = [ '\n'.join(lines[i:i+S]) for i,l in enumerate(lines[::S])]
 	
 	print(len(blocks))
-
+	b, blocks = "", []
+	for s in sentences :
+		if len(b + s) < MXL :
+			b = b + '\n' + s
+		else :
+			blocks.append(b)
+			b = s
+	
 	for ib, b in enumerate(tqdm.tqdm(blocks)) :
 		payload["input"] = b
 

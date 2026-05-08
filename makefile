@@ -8,6 +8,11 @@ key=d8b6abd8-2556-41d8-854c-ce611e58110b
 # api key 	SCWSKG7PAEV6Q9N66MQ3
 # secret key 	4488a994-ef1d-4546-8752-65149e80b62b
 
+
+start :
+	python client.py
+
+
 add_to_env :
 	scw init -p newprofile \
   access-key=SCWSKG7PAEV6Q9N66MQ3\
