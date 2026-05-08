@@ -80,8 +80,8 @@ install anaconda :
         curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
         bash Anaconda3-2025.12-2-Linux-x86_64.sh
         cd anaconda3/bin
-        pip install uv
-        pip install utillc
+        ./pip install uv
+        ./pip install utillc soundfile 
         ./uv venv tts
         source tts/bin/activate
         ./uv pip install -U vllm

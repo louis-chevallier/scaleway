@@ -22,12 +22,12 @@ payload = {
 
 with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
-	print(f"{len(lines)=} {mxll=}")
-	EKON(len(lines), mxll)
 	mxll = max([ len(l) for l in lines])
 	
 	MXL=4096
 	S = MXL // mxll
+	EKON(len(lines), mxll)
+	print(f"{len(lines)=} {mxll=}")
 
 	print(f"{S=}")
 
