@@ -23,7 +23,13 @@ with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
 	print(len(lines))
 
-	S = 100*2//6
+	mxll = [ len(l) for l in lines)]
+	MXL=4096
+	S = MXL // mxl
+	print(f"{=S}")
+	print(f"{S=}")
+
+	#S = 100*2//6
 	blocks = [ '\n'.join(lines[i:i+S]) for i,l in enumerate(lines[::S])]
 	
 	print(len(blocks))
@@ -57,10 +63,10 @@ with open("livre.txt", "r") as fd :
 		#print(res)
 
 		command = 'curl -T out_%02d.mp3 -u "b7_41867395:yZtudpf9jrZHQ" ftp://ftp.byethost7.com/htdocs/' % ib
-		print(command)
+		#print(command)
 		res=subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 		res.stdout.read()                                                                                                                              
 
 		
-		break
+		#break
 
