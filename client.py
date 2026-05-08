@@ -23,7 +23,7 @@ with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
 	print(len(lines))
 
-	S = 100*2//3
+	S = 100*2//6
 	blocks = [ '\n'.join(lines[i:i+S]) for i,l in enumerate(lines[::S])]
 	
 	print(len(blocks))
@@ -37,7 +37,7 @@ with open("livre.txt", "r") as fd :
 		audio_array, sr = sf.read(io.BytesIO(response.content), dtype="float32")
 		print(f"Got audio: {len(audio_array)} samples at {sr} Hz")
 
-		print(audio_array)
+		print(audio_array.dtype)
 		# you can play the audio with a library like `sounddevice.play` for example
 
 
