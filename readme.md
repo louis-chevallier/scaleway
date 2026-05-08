@@ -46,8 +46,28 @@ pwd
  1945  scp readme.md root@"2001:bc8:711:3a6f:dc00:1ff:fe02:e2eb":/data
  1946  scp readme.md root@"[2001:bc8:711:3a6f:dc00:1ff:fe02:e2eb]":/data
 
+# ssh key
+
+<Laboite><Monbled><Monchien>_IV
 
 
+à rentrer quand je ssh vers la machine
+
+install anaconda :
+        curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
+        bash Anaconda3-2025.12-2-Linux-x86_64.sh
+        cd anaconda3/bin
+        pip install uv
+
+        ./uv venv tts
+        source tts/bin/activate
+        ./uv pip install -U vllm
+
+        ./uv pip install vllm-omni --upgrade  # make sure to have >= 0.18.0
+        
+        python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
+        # ca écrit 1.11.2 chez moi
+        
 
 
 
