@@ -1,7 +1,7 @@
 import io
 import httpx
 import soundfile as sf
- 
+
 BASE_URL = "http://localhost:8000/v1"
  
 payload = {
@@ -17,4 +17,5 @@ response.raise_for_status()
 audio_array, sr = sf.read(io.BytesIO(response.content), dtype="float32")
 print(f"Got audio: {len(audio_array)} samples at {sr} Hz")
 
+print(audio_array)
 # you can play the audio with a library like `sounddevice.play` for example
