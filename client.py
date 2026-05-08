@@ -57,7 +57,7 @@ with open("livre.txt", "r") as fd :
 			b = s
 	
 	for ib, b in enumerate(tqdm.tqdm(blocks)) :
-		payload["input"] = b
+		#payload["input"] = b
 
 		response = httpx.post(f"{BASE_URL}/audio/speech", json=payload, timeout=120.0)
 		response.raise_for_status()
