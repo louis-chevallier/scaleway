@@ -56,6 +56,26 @@ pwd
 git clone https://github.com/louis-chevallier/scaleway.git
 
 
+file transfer :
+	ftp ftp.byethost7.com
+name = b7_41867395
+pw = ( dans firefox / passwd : byethost )
+
+one line command :
+	wget ftp://b7_41867395:yZtudpf9jrZHQ@ftp.byethost7.com/htdocs/test.wav
+        curl -T test.wav -u "b7_41867395:yZtudpf9jrZHQ" ftp://ftp.byethost7.com/htdocs
+
+cd htdocs
+put test.mp3
+
+
+#pas utilisé
+enabling google drive api ( for uploading with python )
+https://d35mpxyw7m7k7g.cloudfront.net/bigdata_1/Get+Authentication+for+Google+Service+API+.pdf
+
+
+
+
 install anaconda :
         curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
         bash Anaconda3-2025.12-2-Linux-x86_64.sh
@@ -72,7 +92,7 @@ install anaconda :
         # ca écrit 1.11.2 chez moi
         
         sudo apt install ffmpeg
-        sudo apt install calibre
+        sudo apt install calibre curl
 
         ebook-convert libre.epub livre.txt
 

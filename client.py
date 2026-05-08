@@ -23,13 +23,13 @@ with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
 	print(len(lines))
 
-	S = 100//2
+	S = 100*2//3
 	blocks = [ '\n'.join(lines[i:i+S]) for i,l in enumerate(lines[::S])]
-
+	
 	print(len(blocks))
 
-	for b in tqdm.tqdm(blocks) :
-		payload["input"] = b
+	for ib, b in enumerate(tqdm.tqdm(blocks)) :
+		#payload["input"] = b
 
 		response = httpx.post(f"{BASE_URL}/audio/speech", json=payload, timeout=120.0)
 		response.raise_for_status()
@@ -52,8 +52,13 @@ with open("livre.txt", "r") as fd :
 		# Retrieved 2026-05-08, License - CC BY-SA 4.0
 		
 
-		res=subprocess.Popen("ffmpeg -y -i test.wav test.mp3",shell=True,stdout=subprocess.PIPE)
+		res=subprocess.Popen("ffmpeg -y -i test.wav out_%02d.mp3" % ib,shell=True,stdout=subprocess.PIPE)
 		res.stdout.read()                                                                                                                              
 		#print(res)
 
+		res=subprocess.Popen('curl -T out_%02d.mp3 -u "b7_41867395:yZtudpf9jrZHQ" ftp://ftp.byethost7.com/htdocs', shell=True, stdout=subprocess.PIPE)
+		res.stdout.read()                                                                                                                              
+
+		
+		break
 
