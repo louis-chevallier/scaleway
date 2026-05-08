@@ -1,6 +1,7 @@
 import io
 import httpx
 import soundfile as sf
+from utillc import *
 import tqdm
 # Source - https://stackoverflow.com/a/10359645
 # Posted by huon, modified by community. See post 'Timeline' for change history
@@ -21,9 +22,10 @@ payload = {
 
 with open("livre.txt", "r") as fd :
 	lines = fd.readlines()
-	print(len(lines))
-
+	print(f"{len(lines)=} {mxll=}")
+	EKON(len(lines), mxll)
 	mxll = max([ len(l) for l in lines])
+	
 	MXL=4096
 	S = MXL // mxll
 
