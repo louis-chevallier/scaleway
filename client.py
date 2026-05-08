@@ -1,6 +1,7 @@
 import io
 import httpx
 import soundfile as sf
+import tqdm
 # Source - https://stackoverflow.com/a/10359645
 # Posted by huon, modified by community. See post 'Timeline' for change history
 # Retrieved 2026-05-08, License - CC BY-SA 4.0
@@ -27,29 +28,32 @@ with open("livre.txt", "r") as fd :
 
 	print(len(blocks))
 
-response = httpx.post(f"{BASE_URL}/audio/speech", json=payload, timeout=120.0)
-response.raise_for_status()
- 
-audio_array, sr = sf.read(io.BytesIO(response.content), dtype="float32")
-print(f"Got audio: {len(audio_array)} samples at {sr} Hz")
+	for b in tqdm(blocks) :
+		payload["input"] = b
 
-print(audio_array)
-# you can play the audio with a library like `sounddevice.play` for example
+		response = httpx.post(f"{BASE_URL}/audio/speech", json=payload, timeout=120.0)
+		response.raise_for_status()
 
+		audio_array, sr = sf.read(io.BytesIO(response.content), dtype="float32")
+		print(f"Got audio: {len(audio_array)} samples at {sr} Hz")
 
-rate = sr
-data = audio_array
-scaled = np.int16(data / np.max(np.abs(data)) * 32767)
-write('test.wav', rate, scaled)
+		print(audio_array)
+		# you can play the audio with a library like `sounddevice.play` for example
 
 
-# Source - https://stackoverflow.com/a/72738804
-# Posted by ashing, modified by community. See post 'Timeline' for change history
-# Retrieved 2026-05-08, License - CC BY-SA 4.0
+		rate = sr
+		data = audio_array
+		scaled = np.int16(data / np.max(np.abs(data)) * 32767)
+		write('test.wav', rate, scaled)
 
 
-res=subprocess.Popen("ffmpeg -y -i test.wav test.mp3",shell=True,stdout=subprocess.PIPE)
-res.stdout.read()                                                                                                                              
-#print(res)
+		# Source - https://stackoverflow.com/a/72738804
+		# Posted by ashing, modified by community. See post 'Timeline' for change history
+		# Retrieved 2026-05-08, License - CC BY-SA 4.0
+		
+
+		res=subprocess.Popen("ffmpeg -y -i test.wav test.mp3",shell=True,stdout=subprocess.PIPE)
+		res.stdout.read()                                                                                                                              
+		#print(res)
 
 
