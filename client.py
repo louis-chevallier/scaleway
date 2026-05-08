@@ -52,7 +52,7 @@ with open("livre.txt", "r") as fd :
 		# Retrieved 2026-05-08, License - CC BY-SA 4.0
 		
 
-		res=subprocess.Popen("ffmpeg -y -i test.wav out_%02d.mp3" % ib,shell=True,stdout=subprocess.PIPE)
+		res=subprocess.Popen("ffmpeg -quiet -y -i test.wav out_%02d.mp3" % ib,shell=True,stdout=subprocess.PIPE)
 		res.stdout.read()                                                                                                                              
 		#print(res)
 
