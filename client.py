@@ -26,7 +26,7 @@ with open("livre.txt", "r") as fd :
 	mxll = [ len(l) for l in lines]
 	MXL=4096
 	S = MXL // mxl
-	print(f"{=S}")
+
 	print(f"{S=}")
 
 	#S = 100*2//6
