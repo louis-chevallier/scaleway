@@ -64,7 +64,7 @@ pw = ( dans firefox / passwd : byethost )
 one line command :
 	wget ftp://b7_41867395:yZtudpf9jrZHQ@ftp.byethost7.com/htdocs/test.wav
         curl -T test.wav -u "b7_41867395:yZtudpf9jrZHQ" ftp://ftp.byethost7.com/htdocs
-
+        ftp ftp://b7_41867395:yZtudpf9jrZHQ@ftp.byethost7.com <<< "dir htdocs"
 cd htdocs
 put test.mp3
 
