@@ -35,7 +35,7 @@ with open("livre.txt", "r") as fd :
 		response.raise_for_status()
 
 		audio_array, sr = sf.read(io.BytesIO(response.content), dtype="float32")
-		print(f"Got audio: {len(audio_array)} samples at {sr} Hz")
+		print(f"Got audio: {len(audio_array)} samples at {sr} Hz, ie {len(audio_array)/sr} sec")
 
 		print(audio_array.dtype)
 		# you can play the audio with a library like `sounddevice.play` for example
