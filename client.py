@@ -14,7 +14,7 @@ BASE_URL = "http://localhost:8000/v1"
 payload = {
     "input": "Paris is a beautiful city!",
     "model": "mistralai/Voxtral-4B-TTS-2603",
-    "response_format": "wav",
+    "response_format": "mp3",
     "voice": "casual_male",
 }
  
