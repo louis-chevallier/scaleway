@@ -31,3 +31,5 @@ install :
 
 	vllm serve mistralai/Voxtral-4B-TTS-2603 --omni
 
+start :
+	ebook-convert huc_l_empire_chinois.epub livre.txt

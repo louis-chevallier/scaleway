@@ -55,7 +55,7 @@ with open("livre.txt", "r") as fd :
 		else :
 			blocks.append(b)
 			b = s
-	
+	EKOX(len(blocks))
 	for ib, b in enumerate(tqdm.tqdm(blocks)) :
 		#payload["input"] = b
 

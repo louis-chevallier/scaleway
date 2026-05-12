@@ -16,6 +16,8 @@ pwd
    13  sudo apt install python3-pip
    14  history
 
+120 mots a la minute
+10 mn => 1200 mots
 
 
  lsb_release -d
