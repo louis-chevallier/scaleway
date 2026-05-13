@@ -29,7 +29,10 @@ conda :
 	bash Anaconda3-2025.12-2-Linux-x86_64.sh -b -p ./anaconda
 
 install : conda
-	cd anaconda3/bin
+	cd anaconda3/bin; make install2
+	ebook-convert huc_l_empire_chinois.epub livre.txt
+
+install2 :
 	./pip install uv
 	./pip install utillc soundfile 
 	./uv venv tts
@@ -40,7 +43,7 @@ install : conda
         # ca écrit 1.11.2 chez moi
 	sudo apt install ffmpeg
 	sudo apt install calibre curl
-	ebook-convert huc_l_empire_chinois.epub livre.txt
+
 
 clone :
 	git clone https://github.com/louis-chevallier/scaleway.git
