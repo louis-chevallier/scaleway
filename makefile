@@ -26,7 +26,7 @@ cp :
 
 install :
 	curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
-	bash Anaconda3-2025.12-2-Linux-x86_64.sh -b -p .
+	bash Anaconda3-2025.12-2-Linux-x86_64.sh -b -p ./anaconda
 	cd anaconda3/bin
 	./pip install uv
 	./pip install utillc soundfile 
