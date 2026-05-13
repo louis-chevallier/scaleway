@@ -35,8 +35,8 @@ install : conda
 	ebook-convert huc_l_empire_chinois.epub livre.txt
 
 install2 :
-	sudo apt install ffmpeg
-	sudo apt install calibre curl
+	sudo apt install -y ffmpeg
+	sudo apt install -y calibre curl
 
 	bin/pip install uv
 	bin/uv venv tts
