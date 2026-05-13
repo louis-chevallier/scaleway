@@ -1,4 +1,15 @@
 
+sur scaleway
+
+- create GPU instance. select L4 ( 0.75 / h )
+  config : GPU OS : Ubuntu
+  keep Block storage 125Giga
+  public ip v6, v4
+  add ssh key if not already done
+  review
+  create
+
+  when started : use provided command : ssh root@ip 
 
 
 pwd
@@ -75,7 +86,9 @@ put test.mp3
 enabling google drive api ( for uploading with python )
 https://d35mpxyw7m7k7g.cloudfront.net/bigdata_1/Get+Authentication+for+Google+Service+API+.pdf
 
-
+push :
+     git commit -a -m xxx
+     git push
 
 
 install anaconda :

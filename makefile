@@ -25,10 +25,30 @@ cp :
 	rcp /mnt/NUC/www/book/linfortune.txt root@ 1946  root@"[2001:bc8:711:3a6f:dc00:1ff:fe02:e2eb]":/data
 
 install :
-	uv pip install -U vllm
-	uv pip install vllm-omni --upgrade  # make sure to have >= 0.18.0
+	curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
+	bash Anaconda3-2025.12-2-Linux-x86_64.sh
+	cd anaconda3/bin
+	./pip install uv
+	./pip install utillc soundfile 
+	./uv venv tts
+	source tts/bin/activate
+	./uv pip install -U vllm
+	./uv pip install vllm-omni --upgrade  # make sure to have >= 0.18.0
 	python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
+        # ca écrit 1.11.2 chez moi
+	sudo apt install ffmpeg
+	sudo apt install calibre curl
+	ebook-convert libre.epub livre.txt
 
+clone :
+	git clone https://github.com/louis-chevallier/scaleway.git
+
+
+push :
+	git commit -a -m xxx
+	git push
+
+serve :
 	vllm serve mistralai/Voxtral-4B-TTS-2603 --omni
 
 start :
