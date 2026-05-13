@@ -29,7 +29,7 @@ conda :
 	bash Anaconda3-2025.12-2-Linux-x86_64.sh -b -p ./anaconda
 
 install : conda
-	cd anaconda3/bin; make install2
+	cd anaconda/bin; make install2
 	ebook-convert huc_l_empire_chinois.epub livre.txt
 
 install2 :
