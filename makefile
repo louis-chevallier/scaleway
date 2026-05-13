@@ -33,13 +33,13 @@ install : conda
 	ebook-convert huc_l_empire_chinois.epub livre.txt
 
 install2 :
-	./pip install uv
-	./pip install utillc soundfile 
-	./uv venv tts
+	bin/pip install uv
+	bin/pip install utillc soundfile 
+	bin/uv venv tts
 	source tts/bin/activate
-	./uv pip install -U vllm
-	./uv pip install vllm-omni --upgrade  # make sure to have >= 0.18.0
-	python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
+	bin/uv pip install -U vllm
+	bin/uv pip install vllm-omni --upgrade  # make sure to have >= 0.18.0
+	bin/python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
         # ca écrit 1.11.2 chez moi
 	sudo apt install ffmpeg
 	sudo apt install calibre curl
