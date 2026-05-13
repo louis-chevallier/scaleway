@@ -15,6 +15,8 @@ sur scaleway
   git clone https://github.com/louis-chevallier/scaleway.git
   cd scaleway
   make install
+  make serve
+  make client
 
 
 pwd

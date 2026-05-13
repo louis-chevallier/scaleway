@@ -28,7 +28,11 @@ cp :
 
 conda :
 	curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
+	-rm -fr anaconda
 	bash Anaconda3-2025.12-2-Linux-x86_64.sh -b -p ./anaconda
+
+
+
 
 install : conda
 	cd anaconda; make -f ../makefile install2
@@ -42,13 +46,43 @@ install2 :
 	bin/uv venv tts
 	source tts/bin/activate; make -f ../makefile install3
 
+serve :
+	cd anaconda; make -f ../makefile serve1
+serve1 :
+	source tts/bin/activate; make -f ../makefile serve2
+
+serve2 :
+	vllm serve mistralai/Voxtral-4B-TTS-2603 --omni
+
+client :
+	cd anaconda; make -f ../makefile client1
+
+client1 :
+	source tts/bin/activate; make -f ../makefile client2
+
+client2 :
+	bin/python ../client.py
+
+
+
+
 install3 :
 	bin/uv pip install utillc soundfile 
 	bin/uv pip install -U vllm
 	bin/uv pip install vllm-omni --upgrade  # make sure to have >= 0.18.0
+	bin/python3 -m pip install soundfile mistral-common
 	bin/python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
         # ca écrit 1.11.2 chez moi
 
+
+inst :
+	cd anaconda ; source tts/bin/activate; make -f ../makefile inst1
+
+inst1 :
+	bin/uv pip install mistral-common
+
+	bin/python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
+        # ca écrit 1.11.2 chez moi
 
 clone :
 	git clone https://github.com/louis-chevallier/scaleway.git
@@ -58,8 +92,7 @@ push :
 	git commit -a -m xxx
 	git push
 
-serve :
-	vllm serve mistralai/Voxtral-4B-TTS-2603 --omni
+
 
 start :
 	ebook-convert huc_l_empire_chinois.epub livre.txt
