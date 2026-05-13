@@ -24,9 +24,11 @@ add_to_env :
 cp :
 	rcp /mnt/NUC/www/book/linfortune.txt root@ 1946  root@"[2001:bc8:711:3a6f:dc00:1ff:fe02:e2eb]":/data
 
-install :
+conda :
 	curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-Linux-x86_64.sh
 	bash Anaconda3-2025.12-2-Linux-x86_64.sh -b -p ./anaconda
+
+install : conda
 	cd anaconda3/bin
 	./pip install uv
 	./pip install utillc soundfile 
