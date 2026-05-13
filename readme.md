@@ -11,6 +11,11 @@ sur scaleway
 
   when started : use provided command : ssh root@ip 
 
+  mkdir /local
+  git clone https://github.com/louis-chevallier/scaleway.git
+  cd scaleway
+  make install
+
 
 pwd
     2  ls
@@ -85,10 +90,6 @@ put test.mp3
 #pas utilisé
 enabling google drive api ( for uploading with python )
 https://d35mpxyw7m7k7g.cloudfront.net/bigdata_1/Get+Authentication+for+Google+Service+API+.pdf
-
-push :
-     git commit -a -m xxx
-     git push
 
 
 install anaconda :
