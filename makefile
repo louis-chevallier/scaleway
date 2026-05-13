@@ -1,3 +1,5 @@
+SHELL := /usr/bin/bash
+
 key=d8b6abd8-2556-41d8-854c-ce611e58110b
 
 
@@ -35,8 +37,10 @@ install : conda
 install2 :
 	bin/pip install uv
 	bin/pip install utillc soundfile 
-#	bin/uv venv tts
-#	source tts/bin/activate
+	bin/uv venv tts
+	source tts/bin/activate; make -f ../makefile install3
+
+install3 :
 	bin/uv pip install -U vllm
 	bin/uv pip install vllm-omni --upgrade  # make sure to have >= 0.18.0
 	bin/python3 -c "import mistral_common; print(mistral_common.__version__)" # should print >= 1.10.0
