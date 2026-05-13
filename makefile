@@ -38,7 +38,7 @@ install :
         # ca écrit 1.11.2 chez moi
 	sudo apt install ffmpeg
 	sudo apt install calibre curl
-	ebook-convert libre.epub livre.txt
+	ebook-convert huc_l_empire_chinois.epub livre.txt
 
 clone :
 	git clone https://github.com/louis-chevallier/scaleway.git
